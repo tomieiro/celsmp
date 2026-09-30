@@ -1,13 +1,21 @@
-# CelSMP
+# CelSMP — Cellular Storage Model Protocol
 
-`.csmp` is a storage format for a trained model. One file holds the weights and
-states, in a readable header, what is known about them: training and
-validation loss, perplexity, whether the weights went through SFT, the
-training stage, step and token counts, and how the tensors are compressed.
+CelSMP (Cellular Storage Model Protocol) is a storage and distribution format
+for trained models. A `.csmp` file can preserve a complete checkpoint for
+continued training or carry only the sections needed for inference. One file
+holds the weights and states, in a readable header, what is known about them:
+training and validation loss, perplexity, whether the weights went through
+SFT, the training stage, step and token counts, and how the tensors are
+compressed.
 
 A `.pt` checkpoint is a pickle: you must load it, and trust it, to learn
 anything about it. A `.csmp` answers those questions from its header, runs no
 code when read, and checks every tensor against a sha256.
+
+For inference distribution, omit optimizer and unnecessary training sections,
+then load only `weights`. The current codecs reduce transfer and storage size;
+they are decoded to ordinary NumPy or PyTorch tensors before execution, so
+CelSMP does not yet provide quantized inference kernels like GGUF runtimes do.
 
 ```text
 $ python -m celsmp info checkpoints/cellm-civ-100m-job-12696.csmp

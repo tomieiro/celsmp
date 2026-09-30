@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "celsmp"
 version = "0.2.0"
-description = "CelSMP: the .csmp storage format for model weights, training metrics and state"
+description = "CelSMP: Cellular Storage Model Protocol for model storage and inference distribution"
 readme = "README.md"
 license = {text = "Apache-2.0"}
 requires-python = ">=3.10"

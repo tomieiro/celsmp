@@ -1,11 +1,12 @@
 ---
 name: csmp
-description: Use when a task touches a .csmp model file or the celsmp library - inspecting a checkpoint's loss, perplexity, SFT flag or training stage, converting .pt checkpoints to .csmp or back, saving or loading weights with celsmp, choosing or evaluating dct (JPEG-style lossy) compression, or verifying file integrity.
+description: Use when a task touches a .csmp model file or the celsmp library - distributing a model for inference, inspecting a checkpoint's loss, perplexity, SFT flag or training stage, converting .pt checkpoints to .csmp or back, saving or loading weights with celsmp, choosing or evaluating dct (JPEG-style lossy) compression, or verifying file integrity.
 ---
 
 # Working with `.csmp` files (celsmp)
 
-A `.csmp` stores a model's weights and state behind a JSON header that states
+CelSMP means **Cellular Storage Model Protocol**. It stores and distributes a
+model's weights and state behind a JSON header that states
 the training loss, validation loss, perplexities, whether the weights went
 through SFT, the stage and step, and how the tensors are compressed.
 

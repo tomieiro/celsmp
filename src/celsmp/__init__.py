@@ -1,4 +1,4 @@
-"""CelSMP: the ``.csmp`` model storage format.
+"""CelSMP: Cellular Storage Model Protocol for storage and inference distribution.
 
     import celsmp
 
